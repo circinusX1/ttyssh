@@ -52,14 +52,14 @@ int main(int n, char* a[])
     ssh_options_set(my_ssh_session, SSH_OPTIONS_HOST, a[4]);
     ssh_options_set(my_ssh_session, SSH_OPTIONS_USER, a[2]);
     ssh_options_set(my_ssh_session, SSH_OPTIONS_LOG_VERBOSITY, &verbosity);
-    ssh_options_set(my_ssh_session, SSH_OPTIONS_CIPHERS_C_S,"aes128-ctr");
+    ssh_options_set(my_ssh_session, SSH_OPTIONS_CIPHERS_C_S,"aes128-ctr"); // if does not connect comment this line
 
     //ssh_options_set(my_ssh_session, SSH_OPTIONS_PORT, &port);
     // Connect to server
     rc = ssh_connect(my_ssh_session);
     if (rc != SSH_OK)
     {
-        fprintf(stderr, "Error: %s\n", ssh_get_error(my_ssh_session)); //HERE IS WHERE I GET THE ERROR
+        fprintf(stderr, "Error: %s\n", ssh_get_error(my_ssh_session)); 
         ssh_free(my_ssh_session);
         exit(-1);
     }
