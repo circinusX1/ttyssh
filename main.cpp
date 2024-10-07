@@ -35,7 +35,7 @@ int main(int n, char* a[])
 
     if(n != 5)
     {
-        std::cout << "run: UART ssh-user ssh-pass ssh-server\n";
+        std::cout << "run: uart-speed ssh-user ssh-pass ssh-server\n";
         exit(1);
     }
     ssh_session my_ssh_session;
