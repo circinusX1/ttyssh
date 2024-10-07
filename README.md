@@ -4,6 +4,7 @@ tty-ssh-bridge, A terminal from a serial device to a remote server over ssh
 ```
 cd module
 sudo apt install linux-headers-$(uname -r)
+make
 cd ..
 mkdir build
 cd build
