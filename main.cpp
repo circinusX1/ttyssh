@@ -119,10 +119,13 @@ int channel_in_out(ssh_session session, const char* speed)
     ::system("sudo insmod ./module/ttyssh.ko");
     ::sleep(1);
     char* pu  = getenv("USER");
-    ::system("sudo chown marius:marius /dev/vpoutput0");
-    ::system("sudo chown marius:marius /dev/vpinput0");
-    ::system("stty /dev/vpoutput0 115200");
-    ::system("stty /dev/vpinput0 115200");
+    std::string cmd = "sudo chown "; cmd += pu; cmd+=":"; cmd += pu;
+    ::system((cmd + " /dev/vpoutput0").c_str());
+    ::system((cmd + " /dev/vinput0").c_str());
+
+
+    ::system((std::string("stty /dev/vpoutput0 ")+speed).c_str());
+    ::system((std::string("stty /dev/vinputt0 ")+speed).c_str());
 
     comport     tty;
 
